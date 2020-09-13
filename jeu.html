@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border: solid;
+  border-color: red;
+  border-radius: 5px 5px 5px 5px;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Click Me</button></p> 
+
+<div id ="container">
+  <div id ="animate"><p id="mots_tombant">care</p></div>
+</div>
+<div><input type="text" id="valeur"></div>
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var mots = document.getElementById("mots_tombant");  
+  var valeur=document.getElementById("valeur").value; 
+  var pos = 0;
+  var id = setInterval(frame, 30);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      
+    }
+    if(valeur==mots)
+    {
+        elem.style.top =" "
+    }
+  }
+}
+</script>
+
+</body>
+</html>
